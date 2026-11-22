@@ -137,7 +137,7 @@ def test_refactored_helper_404_and_summary():
 def test_public_api_currency_conversion_and_invalid_input():
     mock_resp = MagicMock()
     mock_resp.raise_for_status.return_value = None
-    mock_resp.json.return_value = {"rates": {"EUR": 92.0}}
+    mock_resp.json.return_value = {"result": "success", "rates": {"EUR": 0.92}}
 
     with patch("public_api.requests.get", return_value=mock_resp):
         converted = convert_currency(100.0, "usd", "eur")
