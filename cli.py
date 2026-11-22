@@ -5,7 +5,7 @@ import requests
 
 from public_api import PublicApiError, convert_currency
 
-DEFAULT_API_BASE_URL = os.getenv("EXPENSE_API_URL", "http://127.0.0.1:8000")
+DEFAULT_API_BASE_URL = os.getenv("EXPENSE_API_URL", "http://127.0.0.1:8001")
 
 
 def _api_request(method: str, path: str, base_url: str = DEFAULT_API_BASE_URL, json_data: dict | None = None):
@@ -171,7 +171,7 @@ def build_parser() -> argparse.ArgumentParser:
     p_upd.add_argument("--id", type=int, required=True)
     p_upd.add_argument("--name", default=None)
     p_upd.add_argument("--amount", type=float, default=None)
-    p_upd.add_argument("--category", default=None)
+    p_upd.add_argument("--ca tegory", default=None)
 
     p_del = subparsers.add_parser("delete", help="Delete an expense by ID")
     p_del.add_argument("--id", type=int, required=True)
